@@ -8,9 +8,11 @@ export default function Home() {
   } = useContext(appContext);
   useEffect(() => {
     fetchProductList();
+    // eslint-disable-next-line
   }, []);
+  console.log(error);
   return (
-    <div className="d-flex flex-wrap w-100 justify-content-center">
+    <div className="d-flex flex-wrap w-100 justify-content-center pt-3 pb-3">
       {loading ? (
         <div className="d-flex flex-column align-items-center justify-content-center mt-5">
           <div className="spinner-border" role="status"></div>

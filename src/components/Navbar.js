@@ -3,10 +3,13 @@ import { appContext } from "../App";
 import { Link } from "react-router-dom";
 export default function Navbar() {
   const { cartItem } = useContext(appContext);
+  function handleSearch(event) {
+    event.preventDefault();
+  }
   return (
     <div className="w-100">
       <nav className={`navbar navbar-dark bg-dark fixed-top`}>
-        <div className="d-flex align-items-center w-100 justify-content-between p-3">
+        <div className="d-flex align-items-center w-100 p-3 justify-content-between">
           <button
             className="navbar-toggler"
             type="button"
@@ -17,6 +20,11 @@ export default function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+          <div className="text-light w-100 ms-3">
+            <Link to="/" className="btn btn-dark" style={{ fontSize: "25px" }}>
+              <i className="fa fa-home"></i>
+            </Link>
+          </div>
           <div
             className={`offcanvas offcanvas-start text-bg-dark`}
             tabIndex="-1"
@@ -48,7 +56,6 @@ export default function Navbar() {
                 <li className="dropdown">
                   <a
                     className="nav-link dropdown-toggle w-100"
-                    href="!#"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
@@ -65,16 +72,14 @@ export default function Navbar() {
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     >
-                      <a className="dropdown-item" href="!#">
-                        Your Orders
-                      </a>
+                      <a className="dropdown-item">Your Orders</a>
                     </li>
                     <li
                       className="p-2"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     >
-                      <Link to="/cart" className="dropdown-item" href="!#">
+                      <Link to="/cart" className="dropdown-item">
                         Your Cart
                       </Link>
                     </li>
@@ -83,18 +88,14 @@ export default function Navbar() {
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     >
-                      <a className="dropdown-item" href="!#">
-                        Your Wishlist
-                      </a>
+                      <a className="dropdown-item">Your Wishlist</a>
                     </li>
                     <li
                       className="p-2"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     >
-                      <a className="dropdown-item" href="!#">
-                        Notification
-                      </a>
+                      <a className="dropdown-item">Notification</a>
                     </li>
                   </ul>
                 </li>
@@ -107,7 +108,6 @@ export default function Navbar() {
                   <a
                     className="nav-link"
                     aria-current="page"
-                    href="!#"
                     style={{ fontSize: "20px" }}
                   >
                     - Acount Details
@@ -121,7 +121,6 @@ export default function Navbar() {
                   <a
                     className="nav-link"
                     aria-current="page"
-                    href="!#"
                     style={{ fontSize: "20px" }}
                   >
                     - FAQ
@@ -135,7 +134,6 @@ export default function Navbar() {
                   <a
                     className="nav-link"
                     aria-current="page"
-                    href="!#"
                     style={{ fontSize: "20px" }}
                   >
                     - Contact Us
@@ -145,7 +143,6 @@ export default function Navbar() {
                 <li className="dropdown">
                   <a
                     className="nav-link dropdown-toggle w-100"
-                    href="!#"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -159,27 +156,21 @@ export default function Navbar() {
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     >
-                      <a className="dropdown-item" href="!#">
-                        Edit Account Details
-                      </a>
+                      <a className="dropdown-item">Edit Account Details</a>
                     </li>
                     <li
                       className="p-2"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     >
-                      <a className="dropdown-item" href="!#">
-                        Account Settings
-                      </a>
+                      <a className="dropdown-item">Account Settings</a>
                     </li>
                     <li
                       className="p-2"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     >
-                      <a className="dropdown-item" href="!#">
-                        Privacy Policy
-                      </a>
+                      <a className="dropdown-item">Privacy Policy</a>
                     </li>
                   </ul>
                 </li>
@@ -192,7 +183,6 @@ export default function Navbar() {
                   <a
                     className="nav-link"
                     aria-current="page"
-                    href="!#"
                     style={{ fontSize: "20px" }}
                   >
                     - Become Seller
@@ -206,7 +196,6 @@ export default function Navbar() {
                   <a
                     className="nav-link"
                     aria-current="page"
-                    href="!#"
                     style={{ fontSize: "20px" }}
                   >
                     - Help and Support
@@ -220,7 +209,6 @@ export default function Navbar() {
                   <a
                     className="nav-link"
                     aria-current="page"
-                    href="!#"
                     style={{ fontSize: "20px" }}
                   >
                     - Feedback
@@ -229,35 +217,53 @@ export default function Navbar() {
               </ul>
             </div>
           </div>
-          <div className={`d-flex align-items-center text-light w-75 ms-2`}>
-            <div className="me-1 ms-1 w-100">
-              <form className="d-flex align-items-center w-100">
-                <input
-                  type="text"
-                  className="bg-secondary bg-opacity-25 rounded border p-2 w-100 text-light"
-                ></input>
-                <button className="btn btn-success btn-lg ms-1">
-                  <i className="fa fa-search"></i>
-                </button>
-              </form>
-            </div>
+
+          <div
+            className={`d-flex align-items-center text-light ms-2 align-self-end`}
+          >
+            <form
+              className="d-flex align-items-center me-2"
+              onSubmit={handleSearch}
+            >
+              <input
+                type="text"
+                className="bg-secondary bg-opacity-25 text-light p-1"
+                style={{
+                  border: "1px solid white",
+                  borderRight: "none",
+                }}
+              />
+              <button
+                className="bg-secondary bg-opacity-25 text-light p-1"
+                type="submit"
+                style={{
+                  borderTop: "1px solid white",
+                  borderRight: "1px solid white",
+                  borderBottom: "1px solid white",
+                  borderLeft: "none",
+                }}
+              >
+                <i className="fa fa-search"></i>
+              </button>
+            </form>
+
             <div className="ms-1">
               <Link
                 to="/cart"
                 type="button"
                 className="btn btn-dark position-relative"
-                style={{ fontSize: "25px" }}
+                style={{ fontSize: "27px" }}
               >
                 <i className="fa fa-shopping-cart"></i>
                 <span
-                  className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                  style={{ fontSize: "15px" }}
+                  className="position-absolute translate-middle badge rounded-pill bg-danger"
+                  style={{ fontSize: "12px", top: "12px", left: "45px" }}
                 >
-                  {cartItem.length}
+                  {cartItem?.length || 0}
                 </span>
               </Link>
             </div>
-            <div className="btn-group dropstart ms-1">
+            <div className="btn-group dropstart">
               <button
                 type="button"
                 className={`btn btn-transparent dropdown-toggle`}
@@ -297,12 +303,12 @@ export default function Navbar() {
                   <hr className="dropdown-divider" />
                 </li>
                 <li className="p-2">
-                  <a className="dropdown-item" href="!#">
+                  <a className="dropdown-item">
                     <i className="fa fa-user-o" aria-hidden="true"></i> Profile
                   </a>
                 </li>
                 <li className="p-2">
-                  <a className="dropdown-item" href="!#">
+                  <a className="dropdown-item">
                     <i className="fa fa-cog" aria-hidden="true"></i> Settings
                   </a>
                 </li>
@@ -310,12 +316,12 @@ export default function Navbar() {
                   <hr className="dropdown-divider" />
                 </li>
                 <li className="p-2">
-                  <a className="dropdown-item" href="!#">
+                  <a className="dropdown-item">
                     <i className="fa fa-life-ring"></i> Help and Support
                   </a>
                 </li>
                 <li className="p-2">
-                  <a className="dropdown-item" href="!#">
+                  <a className="dropdown-item">
                     <i
                       className="fa fa-question-circle-o"
                       aria-hidden="true"
@@ -327,11 +333,7 @@ export default function Navbar() {
                   <hr className="dropdown-divider" />
                 </li>
                 <li className="p-2">
-                  <a
-                    className="dropdown-item"
-                    href="!#"
-                    style={{ fontWeight: "600" }}
-                  >
+                  <a className="dropdown-item" style={{ fontWeight: "600" }}>
                     <i className="fa fa-sign-out" aria-hidden="true"></i> Logout
                   </a>
                 </li>

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -10,10 +10,9 @@ async function fetchProductsMock() {
   return new Promise((res) => {
     setTimeout(() => {
       res(mockProducts);
-    }, 2000);
+    }, 1000);
   });
 }
-
 export const appContext = createContext({});
 function App() {
   const [cart, setCart] = useState([]);
@@ -23,6 +22,20 @@ function App() {
     data: [],
     error: null,
   });
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (cart.length === 1) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
+
   async function fetchProductList() {
     setProductList({ ...productList, loading: true });
     try {
@@ -53,12 +66,12 @@ function App() {
         <div className="App">
           <Navbar />
           <div
-            className="bg-black bg-opacity-75 text-light"
+            className="bg-dark bg-opacity-50 text-light"
             style={{
               position: "fixed",
-              top: "11%",
+              top: "9%",
               width: "100%",
-              height: "90vh",
+              height: "92vh",
               overflowY: "scroll",
               paddingTop: "20px",
             }}

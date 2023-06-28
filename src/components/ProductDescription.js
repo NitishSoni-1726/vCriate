@@ -8,6 +8,7 @@ import { appContext } from "../App";
 async function productDetailsApi(id) {
   return new Promise((res) => {
     setTimeout(() => {
+      // eslint-disable-next-line
       const product = mockProducts.find((item) => item.code == id);
       res(product);
     }, 1000);
@@ -28,6 +29,7 @@ export default function ProductDescription() {
       setItem({ loading: false, error: null, data: productDetails });
     }
     _fetchProductDetails();
+    // eslint-disable-next-line
   }, []);
   useEffect(() => {
     if (item.data) {
@@ -37,6 +39,7 @@ export default function ProductDescription() {
         }
       }
     }
+    // eslint-disable-next-line
   }, [item]);
 
   let price;
@@ -53,6 +56,7 @@ export default function ProductDescription() {
     }
   }
   function handleAddToCart() {
+    item.data.quantity = 1;
     const cart = cartItem.concat([item.data]);
     addItem(cart);
     setAddedToCart(true);
@@ -106,7 +110,7 @@ export default function ProductDescription() {
                 </h5>
                 <h5 className="ms-3">{"(" + discountPercentage + "% off)"}</h5>
               </div>
-              <div className="mt-4 d-flex justify-content-between w-100">
+              <div className="mt-4 d-flex justify-content-around w-100">
                 {addedToCart ? (
                   <button
                     className="btn btn-danger btn-lg d-flex align-items-center"
