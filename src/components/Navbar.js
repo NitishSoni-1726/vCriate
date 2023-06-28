@@ -1,5 +1,7 @@
-import React from "react";
-export default function Navbar(props) {
+import React, { useContext } from "react";
+import { appContext } from "../App";
+export default function Navbar() {
+  const { cartItem } = useContext(appContext);
   return (
     <div className="w-100">
       <nav className={`navbar navbar-dark bg-dark fixed-top`}>
@@ -160,8 +162,19 @@ export default function Navbar(props) {
               </ul>
             </div>
           </div>
-          <div className={`d-flex align-items-center text-light`}>
-            <div className="me-1 ms-1">
+          <div className={`d-flex align-items-center text-light w-75 ms-2`}>
+            <div className="me-1 ms-1 w-100">
+              <form className="d-flex align-items-center w-100">
+                <input
+                  type="text"
+                  className="bg-secondary bg-opacity-25 rounded border p-2 w-100 text-light"
+                ></input>
+                <button className="btn btn-success btn-lg ms-1">
+                  <i className="fa fa-search"></i>
+                </button>
+              </form>
+            </div>
+            <div className="ms-1">
               <button
                 type="button"
                 class="btn btn-dark position-relative"
@@ -172,19 +185,14 @@ export default function Navbar(props) {
                   class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                   style={{ fontSize: "15px" }}
                 >
-                  4
+                  {cartItem.length}
                 </span>
               </button>
             </div>
-            <div className="me-1 ms-1">
-              <button className={`btn btn-dark`} style={{ fontSize: "25px" }}>
-                <i class="fa fa-bell-o"></i>
-              </button>
-            </div>
-            <div className="btn-group dropstart ms-1 me-1">
+            <div className="btn-group dropstart ms-1">
               <button
                 type="button"
-                class={`btn btn-dark dropdown-toggle`}
+                class={`btn btn-transparent dropdown-toggle`}
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
