@@ -4,18 +4,20 @@ import Cart from "./components/Cart";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import mockProducts from "./mock-data";
+import ProductDescription from "./components/ProductDescription";
 
 async function fetchProductsMock() {
   return new Promise((res) => {
     setTimeout(() => {
       res(mockProducts);
-    }, 100);
+    }, 2000);
   });
 }
 
 export const appContext = createContext({});
 function App() {
   const [cart, setCart] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState({});
   const [productList, setProductList] = useState({
     loading: false,
     data: [],
@@ -39,11 +41,13 @@ function App() {
     <Router>
       <appContext.Provider
         value={{
-          fetchProductList: fetchProductList,
+          fetchProductList,
           cartItem: cart,
           addItem: setCart,
           productList: productList,
-          setProductList: setProductList,
+          setProductList,
+          selectedProduct: selectedProduct,
+          setSelectedProduct: setSelectedProduct,
         }}
       >
         <div className="App">
@@ -62,6 +66,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/cart" element={<Cart />}></Route>
+              <Route
+                path="product/:id"
+                element={<ProductDescription />}
+              ></Route>
             </Routes>
           </div>
         </div>

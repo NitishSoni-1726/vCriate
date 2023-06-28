@@ -6,14 +6,16 @@ export default function Home() {
   const {
     productList: { data, loading, error },
   } = useContext(appContext);
-  console.log(data);
   useEffect(() => {
     fetchProductList();
   }, []);
   return (
     <div className="d-flex flex-wrap w-100 justify-content-center">
       {loading ? (
-        <div>Loading...</div>
+        <div className="d-flex flex-column align-items-center justify-content-center mt-5">
+          <div className="spinner-border" role="status"></div>
+          <div className="mt-3">Loading Products...</div>
+        </div>
       ) : (
         data.map((product, index) => {
           return <Product key={index} productDetail={product} />;

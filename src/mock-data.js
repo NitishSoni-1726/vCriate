@@ -1,5 +1,6 @@
 const products = [
   {
+    code: 1,
     name: "Zipped cardigan",
     image:
       "https://image.hm.com/assets/hm/e8/64/e864b1dfc9952f9142cb935d6d04bce86e78d5df.jpg",
@@ -44,6 +45,7 @@ const products = [
     ],
   },
   {
+    code: 2,
     name: "Skinny Jeans",
     image:
       "https://image.hm.com/assets/hm/5a/b3/5ab3eaa681265286f795d408658be503d82fc74d.jpg",
@@ -68,6 +70,7 @@ const products = [
     ],
   },
   {
+    code: 3,
     name: "Waffled jersey pyjamas",
     image:
       "https://image.hm.com/assets/hm/0f/12/0f12ccbb12b9e5abcf86bc546299b79ba1df1825.jpg",
@@ -92,6 +95,7 @@ const products = [
     ],
   },
   {
+    code: 4,
     name: "Knot-detail sandals",
     image:
       "https://image.hm.com/assets/hm/1a/19/1a190143cab1f1ee0e650aa877794539aca73b3c.jpg",
@@ -124,6 +128,7 @@ const products = [
     ],
   },
   {
+    code: 5,
     name: "Skinny Fit Cargo joggers",
     image:
       "https://image.hm.com/assets/hm/1f/38/1f3834aa2d51a91f30eb36510ee3f3620d1050b9.jpg",
@@ -168,6 +173,7 @@ const products = [
     ],
   },
   {
+    code: 6,
     name: "Wrap dress",
     image:
       "https://image.hm.com/assets/hm/9e/51/9e513473b269336fa96863ada07a5fa379dda779.jpg",
@@ -195,6 +201,7 @@ const products = [
     ],
   },
   {
+    code: 7,
     name: "Linen-blend pull-on trousers",
     image:
       "https://image.hm.com/assets/hm/5d/e8/5de871aa0504fcaaa376e820120a484a5f29b999.jpg",
@@ -235,6 +242,7 @@ const products = [
     ],
   },
   {
+    code: 8,
     name: "Ankle-length trousers",
     image:
       "https://image.hm.com/assets/hm/3f/25/3f259fd07c88d86c15434d2d913348f9515d48fa.jpg",
@@ -275,6 +283,7 @@ const products = [
     ],
   },
   {
+    code: 9,
     name: "2-pack Relaxed Fit sweatshirts",
     image:
       "https://image.hm.com/assets/hm/13/55/135567ff5de0f17728d791d552a82b83faaa3d7d.jpg",
@@ -310,6 +319,7 @@ const products = [
     ],
   },
   {
+    code: 10,
     name: "5-pack cotton short trunks",
     image:
       "https://image.hm.com/assets/hm/30/0f/300f5c001e6250a8791f2f9f10378e9495aef78c.jpg",
@@ -334,6 +344,7 @@ const products = [
     ],
   },
   {
+    code: 11,
     name: "Chunky Chelsea boots",
     image:
       "https://image.hm.com/assets/hm/34/75/3475289332d0c4951bb5bbc3ec6687860b8b0584.jpg",
@@ -370,6 +381,7 @@ const products = [
     ],
   },
   {
+    code: 12,
     name: "Slim Fit Turtleneck top",
     image:
       "https://image.hm.com/assets/hm/93/e7/93e7b1254cbb41f08abf83ee3f952702597aa849.jpg",
@@ -410,6 +422,7 @@ const products = [
     ],
   },
   {
+    code: 13,
     name: "Wide High Jeans",
     image:
       "https://image.hm.com/assets/hm/ad/5a/ad5aaba670c05b47e2b341e12f371914d4d39229.jpg",
@@ -446,6 +459,7 @@ const products = [
     ],
   },
   {
+    code: 14,
     name: "Cropped rugby shirt",
     image:
       "https://image.hm.com/assets/hm/5d/c6/5dc6b3e0ad0e67a360973131a4897541380430ed.jpg",
@@ -486,6 +500,7 @@ const products = [
     ],
   },
   {
+    code: 15,
     name: "Pyjama top and leggings",
     image:
       "https://image.hm.com/assets/hm/37/4b/374baf5e5a89794f7ae696edab755c6865df50f6.jpg",
@@ -518,6 +533,7 @@ const products = [
     ],
   },
   {
+    code: 16,
     name: "Chunky buckle-detail loafers",
     image:
       "https://image.hm.com/assets/hm/0f/47/0f476ce970ed9a9170065b0a860fa5dbe3eee52b.jpg",
@@ -545,8 +561,8 @@ const products = [
     ],
   },
   {
+    code: 17,
     name: "Pyjamas",
-
     image:
       "https://image.hm.com/assets/hm/72/11/7211337155c6d0a9cfa2ad5ca2dedf8742771cd7.jpg",
     actualPrice: {
@@ -586,6 +602,7 @@ const products = [
     ],
   },
   {
+    code: 18,
     name: "Slim Fit Cotton polo shirt",
     image:
       "https://image.hm.com/assets/hm/e5/d4/e5d47951f09e5552d3b8c7fd534284432a2eb4f9.jpg",
@@ -626,6 +643,7 @@ const products = [
     ],
   },
   {
+    code: 19,
     name: "Linen-blend pull-on trousers",
     image:
       "https://image.hm.com/assets/hm/e6/9b/e69b5a0df8aea496817e47ba13757ae8aa2840bb.jpg",
@@ -662,6 +680,7 @@ const products = [
     ],
   },
   {
+    code: 20,
     name: "Relaxed Fit Hoodie",
     image:
       "https://image.hm.com/assets/hm/60/62/60629c6b2c3c690c247a6b1bff2d4541f4155d0c.jpg",
@@ -697,6 +716,7 @@ const products = [
     ],
   },
   {
+    code: 21,
     name: "Relaxed Fit Printed hoodie",
     image:
       "https://image.hm.com/assets/hm/12/86/12863ffb711b2ab147c0cb73946946c3ac69a0de.jpg",
@@ -741,6 +761,7 @@ const products = [
     ],
   },
   {
+    code: 22,
     name: "Low Waist Cargo Jeans",
     image:
       "https://image.hm.com/assets/hm/80/d5/80d53c8c742f14f1837de15b650616cdba122b19.jpg",
@@ -765,6 +786,7 @@ const products = [
     ],
   },
   {
+    code: 23,
     name: "Relaxed Fit Corduroy shirt",
     image:
       "https://image.hm.com/assets/hm/3e/dc/3edc5d7df3622d82bc2f5440dbf5e4361799f033.jpg",
@@ -801,6 +823,7 @@ const products = [
     ],
   },
   {
+    code: 24,
     name: "Slim Fit Cotton polo shirt",
     image:
       "https://image.hm.com/assets/hm/cf/c7/cfc7a40d9432a96ee87d4ec7a19db0341dde589b.jpg",
@@ -841,6 +864,7 @@ const products = [
     ],
   },
   {
+    code: 25,
     name: "Regular Fit Printed hoodie",
     image:
       "https://image.hm.com/assets/hm/0b/b5/0bb53720575450c0952ca1cc3dfcddd612ab429b.jpg",
@@ -885,6 +909,7 @@ const products = [
     ],
   },
   {
+    code: 26,
     name: "Linen-blend pull-on trousers",
     image:
       "https://image.hm.com/assets/hm/2b/47/2b475edc5c3f112a5a77be36c160cd1f9148d232.jpg",
@@ -920,6 +945,7 @@ const products = [
     ],
   },
   {
+    code: 27,
     name: "Crochet-look trousers",
     image:
       "https://image.hm.com/assets/hm/ca/50/ca509904514368a5591d5c7547e082cf9c9ad842.jpg",
@@ -944,6 +970,7 @@ const products = [
     ],
   },
   {
+    code: 28,
     name: "Straight High Split Jeans",
     image:
       "https://image.hm.com/assets/hm/3f/11/3f11d263f78300d896bde6714c5cbeb41666f5f3.jpg",
@@ -968,6 +995,7 @@ const products = [
     ],
   },
   {
+    code: 29,
     name: "High-waisted joggers",
     image:
       "https://image.hm.com/assets/hm/47/91/4791d41b4ed00e01ba902e1553dee1f84199b53d.jpg",
@@ -995,6 +1023,7 @@ const products = [
     ],
   },
   {
+    code: 30,
     name: "Small string pouch bag",
     image:
       "https://image.hm.com/assets/hm/63/ca/63cac4664111b218f92f9cdd8477496e24966db5.jpg",

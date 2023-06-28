@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { appContext } from "../App";
 export default function (props) {
+  const { setSelectedProduct } = useContext(appContext);
   let costPrice;
   let discount;
   if (props.productDetail.discountedPrice === undefined) {
@@ -13,12 +16,16 @@ export default function (props) {
       100;
     discount = Math.round(discount);
   }
+  function handleSelect() {
+    setSelectedProduct(props.productDetail);
+  }
 
   return (
     <div className="text-dark">
-      <div
-        className="border border-light m-4 p-3 d-flex flex-column align-items-center rounded bg-black bg-opacity-25 product"
-        style={{ height: "555px" }}
+      <Link
+        to={`/product/${props.productDetail.code}`}
+        className="border border-light m-4 p-3 d-flex flex-column align-items-center rounded bg-success bg-opacity-25 product"
+        style={{ height: "555px", textDecoration: "none" }}
       >
         <img
           src={props.productDetail.image}
@@ -49,7 +56,7 @@ export default function (props) {
             {costPrice} ({discount + "% off"})
           </h5>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
