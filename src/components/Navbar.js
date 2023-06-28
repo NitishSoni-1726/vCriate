@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { appContext } from "../App";
+import { Link } from "react-router-dom";
 export default function Navbar() {
   const { cartItem } = useContext(appContext);
   return (
@@ -37,7 +38,7 @@ export default function Navbar() {
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="dropdown">
                   <a
-                    className="nav-link dropdown-toggle w-100 active"
+                    className="nav-link dropdown-toggle w-100"
                     href="!#"
                     role="button"
                     data-bs-toggle="dropdown"
@@ -56,13 +57,18 @@ export default function Navbar() {
                       </a>
                     </li>
                     <li className="p-2">
-                      <a className="dropdown-item" href="!#">
+                      <Link to="/cart" className="dropdown-item" href="!#">
                         Your Cart
-                      </a>
+                      </Link>
                     </li>
                     <li className="p-2">
                       <a className="dropdown-item" href="!#">
                         Your Wishlist
+                      </a>
+                    </li>
+                    <li className="p-2">
+                      <a className="dropdown-item" href="!#">
+                        Notification
                       </a>
                     </li>
                   </ul>
@@ -175,7 +181,8 @@ export default function Navbar() {
               </form>
             </div>
             <div className="ms-1">
-              <button
+              <Link
+                to="/cart"
                 type="button"
                 class="btn btn-dark position-relative"
                 style={{ fontSize: "25px" }}
@@ -187,7 +194,7 @@ export default function Navbar() {
                 >
                   {cartItem.length}
                 </span>
-              </button>
+              </Link>
             </div>
             <div className="btn-group dropstart ms-1">
               <button
