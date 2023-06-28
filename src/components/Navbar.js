@@ -24,9 +24,18 @@ export default function Navbar() {
             aria-labelledby="offcanvasDarkNavbarLabel"
           >
             <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
-                VCriate E-commerce
-              </h5>
+              <div data-bs-dismiss="offcanvas" aria-label="Close">
+                <Link
+                  to="/"
+                  style={{
+                    fontSize: "25px",
+                    color: "white",
+                    textDecoration: "none",
+                  }}
+                >
+                  VCriate E-commerce
+                </Link>
+              </div>
               <button
                 type="button"
                 className={`btn-close btn-close-white`}
@@ -51,22 +60,38 @@ export default function Navbar() {
                   <ul
                     className={`dropdown-menu show dropdown-menu-dark border-0`}
                   >
-                    <li className="p-2">
+                    <li
+                      className="p-2"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    >
                       <a className="dropdown-item" href="!#">
                         Your Orders
                       </a>
                     </li>
-                    <li className="p-2">
+                    <li
+                      className="p-2"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    >
                       <Link to="/cart" className="dropdown-item" href="!#">
                         Your Cart
                       </Link>
                     </li>
-                    <li className="p-2">
+                    <li
+                      className="p-2"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    >
                       <a className="dropdown-item" href="!#">
                         Your Wishlist
                       </a>
                     </li>
-                    <li className="p-2">
+                    <li
+                      className="p-2"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    >
                       <a className="dropdown-item" href="!#">
                         Notification
                       </a>
@@ -74,9 +99,13 @@ export default function Navbar() {
                   </ul>
                 </li>
                 <li className="nav-item mt-2">Account and Settings</li>
-                <li class="nav-item">
+                <li
+                  className="nav-item"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                >
                   <a
-                    class="nav-link"
+                    className="nav-link"
                     aria-current="page"
                     href="!#"
                     style={{ fontSize: "20px" }}
@@ -84,9 +113,13 @@ export default function Navbar() {
                     - Acount Details
                   </a>
                 </li>
-                <li class="nav-item">
+                <li
+                  className="nav-item"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                >
                   <a
-                    class="nav-link"
+                    className="nav-link"
                     aria-current="page"
                     href="!#"
                     style={{ fontSize: "20px" }}
@@ -94,9 +127,13 @@ export default function Navbar() {
                     - FAQ
                   </a>
                 </li>
-                <li class="nav-item">
+                <li
+                  className="nav-item"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                >
                   <a
-                    class="nav-link"
+                    className="nav-link"
                     aria-current="page"
                     href="!#"
                     style={{ fontSize: "20px" }}
@@ -117,17 +154,29 @@ export default function Navbar() {
                     - Privacy and Settings
                   </a>
                   <ul className={`dropdown-menu dropdown-menu-dark border-0`}>
-                    <li className="p-2">
+                    <li
+                      className="p-2"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    >
                       <a className="dropdown-item" href="!#">
                         Edit Account Details
                       </a>
                     </li>
-                    <li className="p-2">
+                    <li
+                      className="p-2"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    >
                       <a className="dropdown-item" href="!#">
                         Account Settings
                       </a>
                     </li>
-                    <li className="p-2">
+                    <li
+                      className="p-2"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    >
                       <a className="dropdown-item" href="!#">
                         Privacy Policy
                       </a>
@@ -135,9 +184,13 @@ export default function Navbar() {
                   </ul>
                 </li>
                 <li className="nav-item mt-2">Others</li>
-                <li class="nav-item">
+                <li
+                  className="nav-item"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                >
                   <a
-                    class="nav-link"
+                    className="nav-link"
                     aria-current="page"
                     href="!#"
                     style={{ fontSize: "20px" }}
@@ -145,9 +198,13 @@ export default function Navbar() {
                     - Become Seller
                   </a>
                 </li>
-                <li class="nav-item">
+                <li
+                  className="nav-item"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                >
                   <a
-                    class="nav-link"
+                    className="nav-link"
                     aria-current="page"
                     href="!#"
                     style={{ fontSize: "20px" }}
@@ -155,9 +212,13 @@ export default function Navbar() {
                     - Help and Support
                   </a>
                 </li>
-                <li class="nav-item">
+                <li
+                  className="nav-item"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                >
                   <a
-                    class="nav-link"
+                    className="nav-link"
                     aria-current="page"
                     href="!#"
                     style={{ fontSize: "20px" }}
@@ -184,12 +245,12 @@ export default function Navbar() {
               <Link
                 to="/cart"
                 type="button"
-                class="btn btn-dark position-relative"
+                className="btn btn-dark position-relative"
                 style={{ fontSize: "25px" }}
               >
                 <i className="fa fa-shopping-cart"></i>
                 <span
-                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                  className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                   style={{ fontSize: "15px" }}
                 >
                   {cartItem.length}
@@ -199,7 +260,7 @@ export default function Navbar() {
             <div className="btn-group dropstart ms-1">
               <button
                 type="button"
-                class={`btn btn-transparent dropdown-toggle`}
+                className={`btn btn-transparent dropdown-toggle`}
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
@@ -233,7 +294,7 @@ export default function Navbar() {
                   </div>
                 </li>
                 <li>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                 </li>
                 <li className="p-2">
                   <a className="dropdown-item" href="!#">
@@ -246,21 +307,24 @@ export default function Navbar() {
                   </a>
                 </li>
                 <li>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                 </li>
                 <li className="p-2">
                   <a className="dropdown-item" href="!#">
-                    <i class="fa fa-life-ring"></i> Help and Support
+                    <i className="fa fa-life-ring"></i> Help and Support
                   </a>
                 </li>
                 <li className="p-2">
                   <a className="dropdown-item" href="!#">
-                    <i class="fa fa-question-circle-o" aria-hidden="true"></i>{" "}
+                    <i
+                      className="fa fa-question-circle-o"
+                      aria-hidden="true"
+                    ></i>{" "}
                     FAQ
                   </a>
                 </li>
                 <li>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                 </li>
                 <li className="p-2">
                   <a
@@ -268,7 +332,7 @@ export default function Navbar() {
                     href="!#"
                     style={{ fontWeight: "600" }}
                   >
-                    <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+                    <i className="fa fa-sign-out" aria-hidden="true"></i> Logout
                   </a>
                 </li>
               </ul>
