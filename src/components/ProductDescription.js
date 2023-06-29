@@ -4,6 +4,7 @@ import mockProducts from "../mock-data";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { appContext } from "../App";
+import Product from "./Product";
 
 async function productDetailsApi(id) {
   return new Promise((res) => {
@@ -17,10 +18,12 @@ async function productDetailsApi(id) {
 
 export default function ProductDescription() {
   const [item, setItem] = useState({ loading: false, data: null, error: null });
-  const [addedToCart, setAddedToCart] = useState(false);
   const { addItem } = useContext(appContext);
-  const { cartItem } = useContext(appContext);
+  const { cartItems, fetchProductList } = useContext(appContext);
   const { id } = useParams();
+  const {
+    productList: { data, loading, error },
+  } = useContext(appContext);
 
   useEffect(() => {
     async function _fetchProductDetails() {
@@ -29,18 +32,10 @@ export default function ProductDescription() {
       setItem({ loading: false, error: null, data: productDetails });
     }
     _fetchProductDetails();
-    // eslint-disable-next-line
-  }, []);
-  useEffect(() => {
-    if (item.data) {
-      for (let i = 0; i < cartItem.length; i++) {
-        if (cartItem[i].code === item.data.code) {
-          setAddedToCart(true);
-        }
-      }
-    }
-    // eslint-disable-next-line
-  }, [item]);
+    fetchProductList();
+  }, [id]);
+
+  const addedToCart = cartItems.find((item) => item.code == id);
 
   let price;
   let discountPercentage;
@@ -57,20 +52,18 @@ export default function ProductDescription() {
   }
   function handleAddToCart() {
     item.data.quantity = 1;
-    const cart = cartItem.concat([item.data]);
+    const cart = cartItems.concat([item.data]);
     addItem(cart);
-    setAddedToCart(true);
   }
   function handleRemoveFromCart() {
-    const index = cartItem.indexOf(item.data);
+    const index = cartItems.indexOf(item.data);
     let cart = [];
-    for (let i = 0; i < cartItem.length; i++) {
+    for (let i = 0; i < cartItems.length; i++) {
       if (i !== index) {
-        cart.push(cartItem[i]);
+        cart.push(cartItems[i]);
       }
     }
     addItem(cart);
-    setAddedToCart(false);
   }
 
   return (
@@ -81,7 +74,7 @@ export default function ProductDescription() {
           <div className="mt-3">Loading Product...</div>
         </div>
       ) : item.data ? (
-        <div className="w-100 bg-success bg-opacity-25 border rounded p-4 d-flex">
+        <div className="w-100 bg-light bg-opacity-50 rounded p-4">
           <div className="d-flex flex-wrap">
             <div style={{ maxWidth: 450 }}>
               <ImageGallery
@@ -92,25 +85,43 @@ export default function ProductDescription() {
                 showPlayButton={false}
                 thumbnailPosition="left"
                 showNav={false}
+                infinite={true}
+                autoPlay={true}
+                useBrowserFullscreen={false}
               />
             </div>
             <div className="p-3">
-              <h1>{item.data.name}</h1>
-              <h3>
+              <h1 className="text-danger">{item.data.name}</h1>
+              <h4 className="text-dark">
                 By <span className="text-danger">{item.data.brandName}</span>
-              </h3>
-              <h4>For {item.data.categoryName}</h4>
+              </h4>
+              <h6 className="text-dark">For {item.data.categoryName}</h6>
               <div className="d-flex align-items-center">
-                <h3>₹ {price}</h3>
+                <h3
+                  className="text-success rounded p-2"
+                  style={{ fontWeight: "800" }}
+                >
+                  ₹ {price}
+                </h3>
                 <h5
-                  className="ms-3 text-warning"
+                  className="ms-3 text-danger rounded p-2"
                   style={{ textDecoration: "line-through" }}
                 >
                   ₹ {item.data.actualPrice.value}
                 </h5>
-                <h5 className="ms-3">{"(" + discountPercentage + "% off)"}</h5>
+                <h5 className="ms-3 text-dark">
+                  {"(" + discountPercentage + "% off)"}
+                </h5>
               </div>
-              <div className="mt-4 d-flex justify-content-around w-100">
+              <div className="text-light mt-2">
+                <div
+                  className="bg-success p-1 rounded d-flex justify-content-center align-items-center"
+                  style={{ maxWidth: "70px" }}
+                >
+                  <i className="fa fa-star"></i> {item.data.ratting.toFixed(1)}
+                </div>
+              </div>
+              <div className="mt-4 d-flex w-100">
                 {addedToCart ? (
                   <button
                     className="btn btn-danger btn-lg d-flex align-items-center"
@@ -132,7 +143,36 @@ export default function ProductDescription() {
                 )}
                 <button className="ms-3 btn btn-success btn-lg">Buy Now</button>
               </div>
+              <div className="mt-3 text-dark" style={{ maxWidth: "800px" }}>
+                <h4>Product Description</h4>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam totam id ducimus culpa error cum, debitis molestiae
+                officia corrupti quasi animi sequi iusto alias itaque similique
+                nulla ab temporibus consequatur est, iure ipsa! Odio velit
+                reprehenderit incidunt accusamus inventore magnam adipisci
+                repellendus deleniti! Adipisci sapiente sed alias corrupti
+                explicabo quo rerum reiciendis? Quo eveniet autem accusamus
+                aspernatur magni qui aperiam quod, accusantium quia voluptatum
+                perspiciatis quibusdam nam, rerum, velit nulla?
+              </div>
             </div>
+          </div>
+          <h3 className="mt-5 p-4 bg-dark bg-opacity-50 text-center">
+            More Products For {item.data.categoryName}
+          </h3>
+          <div className="d-flex flex-wrap w-100 mt-2 justify-content-center">
+            {loading ? (
+              <div className="d-flex flex-column align-items-center justify-content-center mt-5">
+                <div className="spinner-border" role="status"></div>
+                <div className="mt-3">Loading Products...</div>
+              </div>
+            ) : (
+              data.map((product, index) => {
+                if (product.categoryName === item.data.categoryName) {
+                  return <Product key={index} productDetail={product} />;
+                }
+              })
+            )}
           </div>
         </div>
       ) : null}

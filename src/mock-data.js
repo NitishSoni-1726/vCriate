@@ -16,6 +16,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_cardigansjumpers_cardigans",
+    ratting: 4.1,
     brandName: "H&M",
     galleryImages: [
       {
@@ -61,6 +62,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_jeans_skinny",
+    ratting: 4.0,
     brandName: "H&M",
     galleryImages: [
       {
@@ -86,6 +88,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_nightwear_pyjamas",
+    ratting: 5.0,
     brandName: "H&M",
     galleryImages: [
       {
@@ -111,6 +114,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_basics_trousersleggings",
+    ratting: 3.9,
     brandName: "H&M",
     galleryImages: [
       {
@@ -144,6 +148,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_trousers_cargo",
+    ratting: 4.5,
     brandName: "H&M",
     galleryImages: [
       {
@@ -184,6 +189,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_dresses_shortdresses",
+    ratting: 4.1,
     brandName: "H&M",
     galleryImages: [
       {
@@ -217,6 +223,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_trousers",
+    ratting: 4.9,
     brandName: "H&M",
     galleryImages: [
       {
@@ -258,6 +265,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_trousers_highwaisted",
+    ratting: 4.3,
     brandName: "H&M",
     galleryImages: [
       {
@@ -294,6 +302,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_hoodiessweatshirts_sweatshirts",
+    ratting: 3.5,
     brandName: "H&M",
     galleryImages: [
       {
@@ -335,6 +344,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_underwear_trunks",
+    ratting: 4.1,
     brandName: "H&M",
     galleryImages: [
       {
@@ -360,6 +370,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_shoes",
+    ratting: 4.7,
     brandName: "H&M",
     galleryImages: [
       {
@@ -397,6 +408,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_tshirtstanks",
+    ratting: 3.6,
     brandName: "H&M",
     galleryImages: [
       {
@@ -438,6 +450,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_jeans",
+    ratting: 4.6,
     brandName: "H&M",
     galleryImages: [
       {
@@ -475,6 +488,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_tops_longsleeve",
+    ratting: 3.1,
     brandName: "H&M",
     galleryImages: [
       {
@@ -516,6 +530,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_nightwear_pyjamas",
+    ratting: 3.9,
     brandName: "H&M",
     galleryImages: [
       {
@@ -544,6 +559,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "Ladies_shoes_loafers",
+    ratting: 3.4,
     brandName: "H&M",
     galleryImages: [
       {
@@ -577,6 +593,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_nightwear_pyjamas",
+    ratting: 4.4,
     brandName: "H&M",
     galleryImages: [
       {
@@ -618,6 +635,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "MEN_TSHIRTSTANKS_POLO",
+    ratting: 3.7,
     brandName: "H&M",
     galleryImages: [
       {
@@ -659,6 +677,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_trousers",
+    ratting: 3.6,
     brandName: "H&M",
     galleryImages: [
       {
@@ -691,6 +710,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_hoodiessweatshirts_hoodies",
+    ratting: 4.1,
     brandName: "H&M",
     galleryImages: [
       {
@@ -732,6 +752,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_hoodiessweatshirts_hoodies",
+    ratting: 4.4,
     brandName: "H&M",
     galleryImages: [
       {
@@ -777,6 +798,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_trousers_cargo",
+    ratting: 3.0,
     brandName: "H&M",
     galleryImages: [
       {
@@ -802,6 +824,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_shirts_longsleeved",
+    ratting: 3.9,
     brandName: "H&M",
     galleryImages: [
       {
@@ -839,6 +862,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "MEN_TSHIRTSTANKS_POLO",
+    ratting: 4.6,
     brandName: "H&M",
     galleryImages: [
       {
@@ -880,6 +904,7 @@ const products = [
     },
     categoryName: "Men",
     mainCategoryCode: "men_hoodiessweatshirts_hoodies",
+    ratting: 2.9,
     brandName: "H&M",
     galleryImages: [
       {
@@ -920,6 +945,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_trousers",
+    ratting: 3.0,
     brandName: "H&M",
     galleryImages: [
       {
@@ -961,6 +987,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_trousers_flare",
+    ratting: 4.0,
     brandName: "H&M",
     galleryImages: [
       {
@@ -986,6 +1013,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_jeans_slim",
+    ratting: 5.0,
     brandName: "H&M",
     galleryImages: [
       {
@@ -1006,6 +1034,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_basics_trousersleggings",
+    ratting: 3.1,
     brandName: "H&M",
     galleryImages: [
       {
@@ -1039,6 +1068,7 @@ const products = [
     },
     categoryName: "Ladies",
     mainCategoryCode: "ladies_accessories_bags_clutchespouches",
+    ratting: 4.5,
     brandName: "H&M",
     galleryImages: [
       {

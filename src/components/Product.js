@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { appContext } from "../App";
 export default function Product(props) {
-  const { cartItem } = useContext(appContext);
+  const { cartItems } = useContext(appContext);
   const [existInCart, setExistInCart] = useState(false);
   let costPrice;
   let discount;
@@ -18,15 +18,15 @@ export default function Product(props) {
     discount = Math.round(discount);
   }
   useEffect(() => {
-    for (let i = 0; i < cartItem.length; i++) {
-      if (cartItem[i].code === props.productDetail.code) {
+    for (let i = 0; i < cartItems.length; i++) {
+      if (cartItems[i].code === props.productDetail.code) {
         setExistInCart(true);
         break;
       } else {
         continue;
       }
     }
-  }, []);
+  }, [cartItems]);
 
   return (
     <div className="text-dark">
@@ -38,14 +38,17 @@ export default function Product(props) {
         <img
           src={props.productDetail.image}
           alt="..."
-          style={{ width: "330px", height: "330px", border: "2px solid black" }}
+          style={{ width: "330px", height: "330px", border: "1px solid green" }}
           className="rounded"
         ></img>
-        <h4 className="text-center mt-3 text-light" style={{ width: "330px" }}>
+        <h4
+          className="text-start mt-3 text-dark"
+          style={{ width: "330px", fontWeight: "600" }}
+        >
           {props.productDetail.name}
         </h4>
         <h6
-          className="text-light"
+          className="text-dark text-start w-100"
           style={{
             margin: "0",
             padding: "0",
@@ -67,10 +70,20 @@ export default function Product(props) {
             {costPrice} ({discount + "% off"})
           </h5>
         </div>
+        <div className="text-light mt-2">
+          <div
+            className="bg-success p-2 rounded"
+            disabled
+            style={{ position: "fixed", top: "15px", left: "15px" }}
+          >
+            <i className="fa fa-star"></i>{" "}
+            {props.productDetail.ratting.toFixed(1)}
+          </div>
+        </div>
         {existInCart ? (
           <div
             className="text-dark bg-warning p-2"
-            style={{ position: "absolute" }}
+            style={{ position: "fixed", top: "10px", right: "10px" }}
           >
             <i className="fa fa-shopping-cart"></i>
           </div>

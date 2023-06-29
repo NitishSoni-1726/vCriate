@@ -17,6 +17,7 @@ export const appContext = createContext({});
 function App() {
   const [cart, setCart] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState({});
+  const [searchStr, setSearchStr] = useState("");
   const [productList, setProductList] = useState({
     loading: false,
     data: [],
@@ -29,14 +30,15 @@ function App() {
       setCart(JSON.parse(storedCart));
     }
   }, []);
-
+  //need to be fixed
   useEffect(() => {
-    if (cart.length === 1) {
+    if (cart.length <= 0) {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
 
   async function fetchProductList() {
+    console.log("abc");
     setProductList({ ...productList, loading: true });
     try {
       const productsResponse = await fetchProductsMock();
@@ -55,12 +57,14 @@ function App() {
       <appContext.Provider
         value={{
           fetchProductList,
-          cartItem: cart,
+          cartItems: cart,
           addItem: setCart,
           productList: productList,
           setProductList,
           selectedProduct: selectedProduct,
           setSelectedProduct: setSelectedProduct,
+          searchStr: searchStr,
+          setSearchStr,
         }}
       >
         <div className="App">

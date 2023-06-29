@@ -2,9 +2,15 @@ import React, { useContext } from "react";
 import { appContext } from "../App";
 import { Link } from "react-router-dom";
 export default function Navbar() {
-  const { cartItem } = useContext(appContext);
+  const { cartItems } = useContext(appContext);
+  const { setSearchStr } = useContext(appContext);
+  const searchInput = React.createRef();
   function handleSearch(event) {
     event.preventDefault();
+    if (searchInput.current) {
+      setSearchStr(searchInput.current.value);
+      searchInput.current.value = "";
+    }
   }
   return (
     <div className="w-100">
@@ -22,7 +28,12 @@ export default function Navbar() {
           </button>
           <div className="text-light w-100 ms-3">
             <Link to="/" className="btn btn-dark" style={{ fontSize: "25px" }}>
-              <i className="fa fa-home"></i>
+              <i
+                className="fa fa-home"
+                onClick={() => {
+                  setSearchStr("");
+                }}
+              ></i>
             </Link>
           </div>
           <div
@@ -232,6 +243,7 @@ export default function Navbar() {
                   border: "1px solid white",
                   borderRight: "none",
                 }}
+                ref={searchInput}
               />
               <button
                 className="bg-secondary bg-opacity-25 text-light p-1"
@@ -259,7 +271,7 @@ export default function Navbar() {
                   className="position-absolute translate-middle badge rounded-pill bg-danger"
                   style={{ fontSize: "12px", top: "12px", left: "45px" }}
                 >
-                  {cartItem?.length || 0}
+                  {cartItems?.length || 0}
                 </span>
               </Link>
             </div>
