@@ -1,16 +1,19 @@
 import React, { useContext } from "react";
 import { appContext } from "../App";
 import { Link } from "react-router-dom";
+import debounce from "debounce";
+
 export default function Navbar() {
   const { cartItems } = useContext(appContext);
   const { setSearchStr } = useContext(appContext);
   const searchInput = React.createRef();
-  function handleSearch(event) {
+  const handleSearch = debounce((event) => {
     event.preventDefault();
     if (searchInput.current) {
       setSearchStr(searchInput.current.value);
     }
-  }
+  }, 500);
+
   return (
     <div className="w-100">
       <nav className={`navbar navbar-dark bg-dark fixed-top`}>
