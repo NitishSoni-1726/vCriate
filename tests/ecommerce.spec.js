@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("http://localhost:3000");
+  await page.goto("https://vcriate-task.netlify.app");
 });
 test("Product Load Test", async ({ page }) => {
   const filterpane = await page.getByTestId("filter-pane");
