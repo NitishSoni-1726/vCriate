@@ -21,11 +21,8 @@ export default function Cart() {
       {cartItems.length !== 0 ? (
         <div className="p-3 w-100">
           <div className="d-flex justify-content-center w-100 mt-4">
-            <div
-              className="bg-secondary bg-opacity-25 rounded p-4"
-              style={{ maxWidth: "1500px" }}
-            >
-              <div className="d-flex align-items-center justify-content-between mb-3">
+            <div className="bg-secondary bg-opacity-25 rounded p-4 w-100">
+              <div className="d-flex align-items-center justify-content-between mb-3 w-100">
                 <h1 className="m-0 p-0 ms-3">Shopping Cart</h1>
                 <h3 className="m-0 p-0 me-3">Price</h3>
               </div>
@@ -82,21 +79,15 @@ export default function Cart() {
             </div>
           </div>
           {cartItems.length !== 0 ? (
-            <div className="d-flex justify-content-center">
-              <div style={{ width: "1035px" }}>
-                <div
-                  className="d-flex justify-content-end mt-4 mb-4 p-4 bg-dark bg-opacity-25"
-                  style={{
-                    position: "sticky",
-                    bottom: 0,
-                    right: 0,
-                  }}
-                >
-                  <button className="btn btn-warning btn-lg">
-                    Place Order
-                  </button>
-                </div>
-              </div>
+            <div
+              className="d-flex justify-content-end mt-4 mb-4 p-4 bg-dark bg-opacity-25 w-100"
+              style={{
+                position: "sticky",
+                bottom: 0,
+                right: 0,
+              }}
+            >
+              <button className="btn btn-warning btn-lg">Place Order</button>
             </div>
           ) : null}
         </div>
