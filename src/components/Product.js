@@ -29,7 +29,7 @@ export default function Product(props) {
   }, [cartItems]);
 
   return (
-    <div className="text-dark">
+    <div className="text-dark" data-testid="product-card">
       <Link
         to={`/product/${props.productDetail.code}`}
         className="m-1 p-3 d-flex flex-column align-items-center rounded bg-secondary bg-opacity-25 product"

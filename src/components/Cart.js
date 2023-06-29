@@ -17,7 +17,7 @@ export default function Cart() {
       actualTotal + cartItems[i].actualPrice.value * cartItems[i].quantity;
   }
   return (
-    <div>
+    <div data-testid="cart-container">
       {cartItems.length !== 0 ? (
         <div className="p-3 w-100">
           <div className="d-flex justify-content-center w-100 mt-4">
@@ -29,7 +29,7 @@ export default function Cart() {
               <div className="w-100 border"></div>
               <div className="mt-3">
                 {cartItems.map((item, index) => {
-                  return <CartItem item={item} index={index} />;
+                  return <CartItem key={index} item={item} index={index} />;
                 })}
               </div>
               <div className="d-flex justify-content-end mt-4">

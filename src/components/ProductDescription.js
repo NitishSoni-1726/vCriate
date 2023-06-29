@@ -11,7 +11,7 @@ async function productDetailsApi(id) {
     setTimeout(() => {
       const product = mockProducts.find((item) => item.code === +id);
       res(product);
-    }, 1000);
+    }, 500);
   });
 }
 
@@ -84,14 +84,20 @@ export default function ProductDescription() {
   }
 
   return (
-    <div className="p-4 d-flex justify-content-center">
+    <div
+      className="p-4 d-flex justify-content-center"
+      data-testid="product-description-container"
+    >
       {item.loading ? (
         <div className="d-flex flex-column align-items-center justify-content-center mt-5">
           <div className="spinner-border" role="status"></div>
           <div className="mt-3">Loading Product...</div>
         </div>
       ) : item.data ? (
-        <div className="w-100 bg-light bg-opacity-50 rounded p-4">
+        <div
+          className="w-100 bg-light bg-opacity-50 rounded p-4"
+          data-testid="product-description"
+        >
           <div className="d-flex flex-wrap">
             <div style={{ maxWidth: 450 }}>
               <ImageGallery
@@ -141,6 +147,7 @@ export default function ProductDescription() {
               <div className="mt-4 d-flex w-100">
                 {addedToCart ? (
                   <button
+                    data-testid="remove-from-cart-button"
                     className="btn btn-danger btn-lg d-flex align-items-center"
                     onClick={() => {
                       handleRemoveFromCart();
@@ -150,6 +157,7 @@ export default function ProductDescription() {
                   </button>
                 ) : (
                   <button
+                    data-testid="add-to-cart-button"
                     className="btn btn-warning btn-lg d-flex align-items-center"
                     onClick={() => {
                       handleAddToCart();

@@ -18,7 +18,11 @@ export default function Filter({
 
   console.log({ priceRange });
   return (
-    <div style={{ width: 350 }} className="bg-dark bg-opacity-50 p-3">
+    <div
+      style={{ width: 350 }}
+      className="bg-dark bg-opacity-50 p-3"
+      data-testid="filter-pane"
+    >
       <h5 className="m-4">Sort By</h5>
       <div className="border"></div>
       <div className="d-flex flex-column">

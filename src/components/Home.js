@@ -142,7 +142,10 @@ export default function Home() {
                   <h5 className="m-0">Search Results For "{searchStr}"</h5>
                 </div>
               ) : null}
-              <div className="d-flex flex-wrap w-100 justify-content-center pt-3 pb-3">
+              <div
+                className="d-flex flex-wrap w-100 justify-content-center pt-3 pb-3"
+                data-testid="product-list-container"
+              >
                 {filteredProducts.map((product, index) => {
                   return <Product key={index} productDetail={product} />;
                 })}

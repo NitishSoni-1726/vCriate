@@ -38,7 +38,7 @@ export default function CartItem(props) {
   }
   console.log(cartItems[props.index]);
   return (
-    <div className="mt-2 bg-light p-3 bg-opacity-50">
+    <div className="mt-2 bg-light p-3 bg-opacity-50" data-testid="cart-item">
       <div className="d-flex flex-wrap justify-content-between">
         <div className="d-flex flex-wrap align-items-center">
           <img
@@ -61,16 +61,21 @@ export default function CartItem(props) {
               <div className="d-flex ms-3 align-items-center">
                 <h6 className="m-0 p-0 me-2 text-dark">Quantiy</h6>
                 <button
+                  data-testid="decrease-butoon"
                   className="m-0 btn btn-dark btn-sm"
                   onClick={handleDecrease}
                   ref={removeButtton}
                 >
                   -
                 </button>
-                <h6 className="m-0 ms-2 me-2 text-dark bg-light ps-2 pe-2 pt-1 pb-1">
+                <h6
+                  data-testid="quantity-display"
+                  className="m-0 ms-2 me-2 text-dark bg-light ps-2 pe-2 pt-1 pb-1"
+                >
                   {cartItems[props.index].quantity}
                 </h6>
                 <button
+                  data-testid="increase-quantity"
                   className="m-0 btn btn-dark btn-sm"
                   onClick={handleIncrease}
                   ref={addButton}
@@ -79,6 +84,7 @@ export default function CartItem(props) {
                 </button>
               </div>
               <button
+                data-testid="delete-item-from-cart"
                 className="btn btn-danger btn-sm ms-2"
                 onClick={handleDelete}
               >

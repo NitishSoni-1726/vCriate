@@ -261,6 +261,7 @@ export default function Navbar() {
 
             <div className="ms-1">
               <Link
+                data-testid="show-cart-button"
                 to="/cart"
                 type="button"
                 className="btn btn-dark position-relative"
@@ -268,6 +269,7 @@ export default function Navbar() {
               >
                 <i className="fa fa-shopping-cart"></i>
                 <span
+                  data-testid="cart-count"
                   className="position-absolute translate-middle badge rounded-pill bg-danger"
                   style={{ fontSize: "12px", top: "12px", left: "45px" }}
                 >
