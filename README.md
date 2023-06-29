@@ -18,7 +18,7 @@ It's an ecommerce app with dummy data with the following features
 
 - And it will be under continous Development.
 
-You can also check a live version of the app here - `https://vcriate-task.netlify.app`
+You can also check a live version of the app here - <https://vcriate-task.netlify.app>
 
 ## How to install
 
