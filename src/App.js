@@ -38,7 +38,6 @@ function App() {
   }, [cart]);
 
   async function fetchProductList() {
-    console.log("abc");
     setProductList({ ...productList, loading: true });
     try {
       const productsResponse = await fetchProductsMock();

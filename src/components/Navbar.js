@@ -9,7 +9,6 @@ export default function Navbar() {
     event.preventDefault();
     if (searchInput.current) {
       setSearchStr(searchInput.current.value);
-      searchInput.current.value = "";
     }
   }
   return (
@@ -232,10 +231,7 @@ export default function Navbar() {
           <div
             className={`d-flex align-items-center text-light ms-2 align-self-end`}
           >
-            <form
-              className="d-flex align-items-center me-2"
-              onSubmit={handleSearch}
-            >
+            <form className="d-flex align-items-center me-2">
               <input
                 type="text"
                 className="bg-secondary bg-opacity-25 text-light p-1"
@@ -243,6 +239,7 @@ export default function Navbar() {
                   border: "1px solid white",
                   borderRight: "none",
                 }}
+                onChange={handleSearch}
                 ref={searchInput}
               />
               <button

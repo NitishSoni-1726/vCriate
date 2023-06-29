@@ -19,69 +19,84 @@ export default function Cart() {
   return (
     <div>
       {cartItems.length !== 0 ? (
-        <div className="p-3">
-          <div className="bg-secondary bg-opacity-25 rounded p-4">
-            <div className="d-flex align-items-center justify-content-between mb-3">
-              <h1 className="m-0 p-0 ms-3">Shopping Cart</h1>
-              <h3 className="m-0 p-0 me-3">Price</h3>
-            </div>
-            <div className="w-100 border"></div>
-            <div className="mt-3">
-              {cartItems.map((item, index) => {
-                return <CartItem item={item} index={index} />;
-              })}
-            </div>
-            <div className="d-flex justify-content-end mt-4">
-              <h5 className="text-end">Actual Total : </h5>
-              <h5
-                className="me-3 text-end"
-                style={{
-                  marginLeft: "30px",
-                  textDecoration: "line-through",
-                  width: "100px",
-                }}
-              >
-                {" "}
-                ₹ {actualTotal}
-              </h5>
-            </div>
-            <div className="d-flex justify-content-end">
-              <h5 className="text-end">Your Savings : </h5>
-              <h5
-                className="me-3 text-end"
-                style={{ marginLeft: "30px", width: "100px" }}
-              >
-                {" "}
-                - ₹ {actualTotal - total}
-              </h5>
-            </div>
-            <div className="border"></div>
-            <div className="d-flex justify-content-end mt-2">
-              <h6 className="text-end">Delivery Charges : </h6>
-              <h6
-                className="me-3 text-end"
-                style={{ marginLeft: "30px", width: "100px" }}
-              >
-                FREE
-              </h6>
-            </div>
-            <div className="d-flex justify-content-end mt-2">
-              <h4 className="text-end">Total : </h4>
-              <h4
-                className="me-3 text-end"
-                style={{ marginLeft: "30px", width: "100px" }}
-              >
-                {" "}
-                ₹ {total}
-              </h4>
+        <div className="p-3 w-100">
+          <div className="d-flex justify-content-center w-100 mt-4">
+            <div
+              className="bg-secondary bg-opacity-25 rounded p-4"
+              style={{ maxWidth: "1500px" }}
+            >
+              <div className="d-flex align-items-center justify-content-between mb-3">
+                <h1 className="m-0 p-0 ms-3">Shopping Cart</h1>
+                <h3 className="m-0 p-0 me-3">Price</h3>
+              </div>
+              <div className="w-100 border"></div>
+              <div className="mt-3">
+                {cartItems.map((item, index) => {
+                  return <CartItem item={item} index={index} />;
+                })}
+              </div>
+              <div className="d-flex justify-content-end mt-4">
+                <h5 className="text-end">Actual Total : </h5>
+                <h5
+                  className="me-3 text-end"
+                  style={{
+                    marginLeft: "30px",
+                    textDecoration: "line-through",
+                    width: "100px",
+                  }}
+                >
+                  {" "}
+                  ₹ {actualTotal}
+                </h5>
+              </div>
+              <div className="d-flex justify-content-end">
+                <h5 className="text-end">Your Savings : </h5>
+                <h5
+                  className="me-3 text-end"
+                  style={{ marginLeft: "30px", width: "100px" }}
+                >
+                  {" "}
+                  - ₹ {actualTotal - total}
+                </h5>
+              </div>
+              <div className="border"></div>
+              <div className="d-flex justify-content-end mt-2">
+                <h6 className="text-end">Delivery Charges : </h6>
+                <h6
+                  className="me-3 text-end"
+                  style={{ marginLeft: "30px", width: "100px" }}
+                >
+                  FREE
+                </h6>
+              </div>
+              <div className="d-flex justify-content-end mt-2">
+                <h4 className="text-end">Total : </h4>
+                <h4
+                  className="me-3 text-end"
+                  style={{ marginLeft: "30px", width: "100px" }}
+                >
+                  {" "}
+                  ₹ {total}
+                </h4>
+              </div>
             </div>
           </div>
           {cartItems.length !== 0 ? (
-            <div
-              className="d-flex justify-content-end mt-4 mb-4 p-4 bg-dark bg-opacity-25"
-              style={{ position: "sticky", bottom: 0, right: 0 }}
-            >
-              <button className="btn btn-warning btn-lg">Place Order</button>
+            <div className="d-flex justify-content-center">
+              <div style={{ width: "1035px" }}>
+                <div
+                  className="d-flex justify-content-end mt-4 mb-4 p-4 bg-dark bg-opacity-25"
+                  style={{
+                    position: "sticky",
+                    bottom: 0,
+                    right: 0,
+                  }}
+                >
+                  <button className="btn btn-warning btn-lg">
+                    Place Order
+                  </button>
+                </div>
+              </div>
             </div>
           ) : null}
         </div>
