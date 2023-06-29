@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -19,6 +19,7 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState({});
   const [searchStr, setSearchStr] = useState("");
   const [productList, setProductList] = useState({
+    fetched: "not-fetched", // can have 'not-fetched', 'fetching', 'fetched'
     loading: false,
     data: [],
     error: null,
@@ -37,19 +38,27 @@ function App() {
     }
   }, [cart]);
 
-  async function fetchProductList() {
-    setProductList({ ...productList, loading: true });
-    try {
-      const productsResponse = await fetchProductsMock();
-      setProductList({ data: productsResponse, loading: false, error: null });
-    } catch (err) {
-      setProductList({
-        ...productList,
-        loading: false,
-        error: "Unable to fetch data. Please try again.",
-      });
+  const fetchProductList = useCallback(async () => {
+    if (productList.fetched === "not-fetched") {
+      setProductList({ ...productList, loading: true, fetched: "fetching" });
+      try {
+        const productsResponse = await fetchProductsMock();
+        setProductList({
+          fetched: "fetched",
+          data: productsResponse,
+          loading: false,
+          error: null,
+        });
+      } catch (err) {
+        setProductList({
+          ...productList,
+          fetched: "fetched",
+          loading: false,
+          error: "Unable to fetch data. Please try again.",
+        });
+      }
     }
-  }
+  }, [productList]);
 
   return (
     <Router>

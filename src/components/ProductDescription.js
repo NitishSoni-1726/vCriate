@@ -9,33 +9,50 @@ import Product from "./Product";
 async function productDetailsApi(id) {
   return new Promise((res) => {
     setTimeout(() => {
-      // eslint-disable-next-line
-      const product = mockProducts.find((item) => item.code == id);
+      const product = mockProducts.find((item) => item.code === +id);
       res(product);
     }, 1000);
   });
 }
 
+const ITEM_INIT = {
+  fetched: "not-fetched",
+  loading: false,
+  data: null,
+  error: null,
+};
+
 export default function ProductDescription() {
-  const [item, setItem] = useState({ loading: false, data: null, error: null });
+  const [item, setItem] = useState(ITEM_INIT);
   const { addItem } = useContext(appContext);
   const { cartItems, fetchProductList } = useContext(appContext);
   const { id } = useParams();
   const {
-    productList: { data, loading, error },
+    productList: { data, loading },
   } = useContext(appContext);
 
   useEffect(() => {
-    async function _fetchProductDetails() {
-      setItem({ ...item, loading: true });
-      const productDetails = await productDetailsApi(id);
-      setItem({ loading: false, error: null, data: productDetails });
-    }
-    _fetchProductDetails();
-    fetchProductList();
+    setItem(ITEM_INIT);
   }, [id]);
 
-  const addedToCart = cartItems.find((item) => item.code == id);
+  useEffect(() => {
+    async function _fetchProductDetails() {
+      setItem({ ...item, loading: true, fetched: "fetching" });
+      const productDetails = await productDetailsApi(id);
+      setItem({
+        loading: false,
+        error: null,
+        data: productDetails,
+        fetched: "fetched",
+      });
+    }
+    if (item.fetched === "not-fetched") {
+      _fetchProductDetails();
+    }
+    fetchProductList();
+  }, [id, fetchProductList, item]);
+
+  const addedToCart = cartItems.find((item) => item.code === +id);
 
   let price;
   let discountPercentage;
@@ -167,11 +184,14 @@ export default function ProductDescription() {
                 <div className="mt-3">Loading Products...</div>
               </div>
             ) : (
-              data.map((product, index) => {
-                if (product.categoryName === item.data.categoryName) {
+              data
+                .filter(
+                  (product) => product.categoryName === item.data.categoryName
+                )
+                .slice(0, 11)
+                .map((product, index) => {
                   return <Product key={index} productDetail={product} />;
-                }
-              })
+                })
             )}
           </div>
         </div>
