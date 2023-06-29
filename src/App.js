@@ -10,7 +10,7 @@ async function fetchProductsMock() {
   return new Promise((res) => {
     setTimeout(() => {
       res(mockProducts);
-    }, 1000);
+    }, 100);
   });
 }
 export const appContext = createContext({});
