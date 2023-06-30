@@ -11,7 +11,7 @@ async function productDetailsApi(id) {
     setTimeout(() => {
       const product = mockProducts.find((item) => item.code === +id);
       res(product);
-    }, 500);
+    }, 1000);
   });
 }
 
