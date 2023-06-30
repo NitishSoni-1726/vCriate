@@ -38,8 +38,8 @@ test("Add To Cart", async ({ page }) => {
   page.getByTestId("product-description-container");
   await page.getByTestId("product-description").waitFor();
   await page.getByTestId("add-to-cart-button").click();
-  const cartCount = await page.getByTestId("cart-count");
-  expect(cartCount).toHaveText("1");
+  const cartCount = await page.getByTestId("cart-count").textContent();
+  expect(cartCount).toBe("1");
 });
 
 test("Remove From Cart", async ({ page }) => {
@@ -52,8 +52,8 @@ test("Remove From Cart", async ({ page }) => {
   await page.getByTestId("product-description").waitFor();
   await page.getByTestId("add-to-cart-button").click();
   await page.getByTestId("remove-from-cart-button").click();
-  const cartCount = await page.getByTestId("cart-count");
-  expect(cartCount).toHaveText("0");
+  const cartCount = await page.getByTestId("cart-count").textContent();
+  expect(cartCount).toBe("0");
 });
 
 test("Cart Display", async ({ page }) => {
@@ -87,8 +87,10 @@ test("Increase Quantity", async ({ page }) => {
   await page.getByTestId("add-to-cart-button").click();
   await page.getByTestId("show-cart-button").click();
   await page.getByTestId("increase-quantity").click();
-  const quantityDisplay = await page.getByTestId("quantity-display");
-  expect(quantityDisplay).toHaveText("2");
+  const quantityDisplay = await page
+    .getByTestId("quantity-display")
+    .textContent();
+  expect(quantityDisplay).toBe("2");
 });
 
 test("Decrease Quantity", async ({ page }) => {
@@ -103,8 +105,10 @@ test("Decrease Quantity", async ({ page }) => {
   await page.getByTestId("show-cart-button").click();
   await page.getByTestId("increase-quantity").click();
   await page.getByTestId("decrease-butoon").click();
-  const quantityDisplay = await page.getByTestId("quantity-display");
-  expect(quantityDisplay).toHaveText("1");
+  const quantityDisplay = await page
+    .getByTestId("quantity-display")
+    .textContent();
+  expect(quantityDisplay).toBe("1");
 });
 
 test("Delete Item From Cart", async ({ page }) => {
@@ -118,8 +122,8 @@ test("Delete Item From Cart", async ({ page }) => {
   await page.getByTestId("add-to-cart-button").click();
   await page.getByTestId("show-cart-button").click();
   await page.getByTestId("delete-item-from-cart").click();
-  const cartCount = await page.getByTestId("cart-count");
-  expect(cartCount).toHaveText("0");
+  const cartCount = await page.getByTestId("cart-count").textContent();
+  expect(cartCount).toBe("0");
 });
 
 test("Check Total Bill Ammount on Quantity Increase", async ({ page }) => {
@@ -133,9 +137,11 @@ test("Check Total Bill Ammount on Quantity Increase", async ({ page }) => {
   await page.getByTestId("add-to-cart-button").click();
   await page.getByTestId("show-cart-button").click();
   await page.getByTestId("increase-quantity").click();
-  expect(await page.getByRole("heading", { name: "₹ 1838" }).nth(1)).toHaveText(
-    "₹ 1838"
-  );
+  const totalAmount = await page
+    .getByRole("heading", { name: "₹ 1838" })
+    .nth(1)
+    .textContent();
+  expect(totalAmount).toBe(" ₹ 1838");
 });
 
 test("Check Total Bill Ammount on Quantity Decrease", async ({ page }) => {
@@ -150,6 +156,9 @@ test("Check Total Bill Ammount on Quantity Decrease", async ({ page }) => {
   await page.getByTestId("show-cart-button").click();
   await page.getByTestId("increase-quantity").click();
   await page.getByTestId("decrease-butoon").click();
-  const totalAmount = await page.getByRole("heading", { name: "₹ 919" }).nth(1);
-  expect(totalAmount).toHaveText("₹ 919");
+  const totalAmount = await page
+    .getByRole("heading", { name: "₹ 919" })
+    .nth(1)
+    .textContent();
+  expect(totalAmount).toBe(" ₹ 919");
 });
