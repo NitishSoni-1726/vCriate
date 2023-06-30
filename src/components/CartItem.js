@@ -13,7 +13,7 @@ export default function CartItem(props) {
   const { cartItems } = useContext(appContext);
   function handleDecrease() {
     if (cartItems[props.index].quantity === 1) {
-      removeButtton.current.setAttribute = ("disabled", true);
+      removeButtton.current.setAttribute = ("disabled", "true");
     } else {
       cartItems[props.index].quantity = cartItems[props.index].quantity - 1;
       addItem([...cartItems]);
@@ -21,7 +21,7 @@ export default function CartItem(props) {
   }
   function handleIncrease() {
     if (cartItems[props.index].quantity === 10) {
-      addButton.current.setAttribute = ("disabled", true);
+      addButton.current.setAttribute = ("disabled", "true");
     } else {
       cartItems[props.index].quantity = cartItems[props.index].quantity + 1;
       addItem([...cartItems]);
